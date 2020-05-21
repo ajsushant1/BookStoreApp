@@ -20,22 +20,22 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    @PostMapping("/addbook")
+    @PostMapping("/add-book")
     public Cart addBooksToCart(@RequestBody CartDTO cartDTO) {
         return cartService.addBooksToCart(cartDTO);
     }
 
-    @GetMapping("/getbooks")
+    @GetMapping("/get-books")
     public List<Cart> getBooksInCart() {
         return cartService.getBooksInCart();
     }
 
-    @PutMapping("/updatebookquantity/{quantity}")
+    @PutMapping("/update-book-quantity/{quantity}")
     public Cart updateCart(@PathVariable long quantity, @RequestParam(value = "book_id") long bookId) throws CartException {
         return cartService.updateCart(bookId, quantity);
     }
 
-    @DeleteMapping("/deletebook/{bookId}")
+    @DeleteMapping("/delete-book/{bookId}")
     public void deleteMapping(@PathVariable long bookId) {
         cartService.deleteBook(bookId);
     }

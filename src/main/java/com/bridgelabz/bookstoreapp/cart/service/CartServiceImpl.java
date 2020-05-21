@@ -13,11 +13,17 @@ import java.util.List;
 @Service
 public class CartServiceImpl implements ICartService {
 
-    @Autowired
+    final
     CartRepository cartRepository;
 
-    @Autowired
+    final
     ModelMapper modelMapper;
+
+    @Autowired
+    public CartServiceImpl(CartRepository cartRepository, ModelMapper modelMapper) {
+        this.cartRepository = cartRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public Cart addBooksToCart(CartDTO cartDTO) {

@@ -15,15 +15,20 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController {
 
-    @Autowired
+    final
     IBookService bookService;
 
-    @GetMapping("/getbooks")
+    @Autowired
+    public BookController(IBookService bookService) {
+        this.bookService = bookService;
+    }
+
+    @GetMapping("/get-books")
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/getbooks/{filter}")
+    @GetMapping("/get-books/{filter}")
     public List<Book> getBooksByFilter(@PathVariable String filter) throws BookException {
         return bookService.getBookByFilter(filter);
     }

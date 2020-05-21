@@ -12,11 +12,17 @@ import java.util.List;
 @Service
 public class BookServiceImpl implements IBookService {
 
-    @Autowired
+    final
     BookRepository bookRepository;
 
-    @Autowired
+    final
     ModelMapper modelMapper;
+
+    @Autowired
+    public BookServiceImpl(BookRepository bookRepository, ModelMapper modelMapper) {
+        this.bookRepository = bookRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public List<Book> getAllBooks() {

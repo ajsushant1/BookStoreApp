@@ -17,17 +17,17 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @PostMapping("/addcustomer")
+    @PostMapping("/add-customer")
     public Customer addCustomer(@RequestBody CustomerDTO customerDTO) {
         return customerService.addCustomer(customerDTO);
     }
 
-    @PutMapping("/updatecustomer/{id}")
+    @PutMapping("/update-customer/{id}")
     public Customer updateCustomer(@PathVariable long id, @RequestBody CustomerDTO customerDTO) {
         return customerService.updateCustomer(id, customerDTO);
     }
 
-    @GetMapping("/getcustomer/{id}")
+    @GetMapping("/get-customer/{id}")
     public Customer getCustomer(@PathVariable long id) {
         return customerService.getCustomer(id);
     }
