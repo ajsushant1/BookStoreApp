@@ -39,4 +39,9 @@ public class CustomerServiceImpl implements ICustomerService {
         customer.setPinCode(customerDTO.getPinCode());
         return customerRepository.save(customer);
     }
+
+    @Override
+    public Customer getCustomer(long id) {
+        return customerRepository.findById(id).get();
+    }
 }
