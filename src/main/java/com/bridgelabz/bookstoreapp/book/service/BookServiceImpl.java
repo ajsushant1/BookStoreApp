@@ -24,20 +24,11 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
-    public List<Book> getBooksByAuthor(String authorName) throws BookException {
-        List<Book> booksListByBookAuthor = bookRepository.findBooksByBookAuthor(authorName);
-        if (booksListByBookAuthor.isEmpty()) {
+    public List<Book> getBookByFilter(String filter) throws BookException {
+        List<Book> bookSet = bookRepository.findBooksByBookAuthorOrBookTitle(filter, filter);
+        if (bookSet.isEmpty()) {
             throw new BookException(BookException.ExceptionType.BOOK_NOT_FOUND, "Book not found");
         }
-        return booksListByBookAuthor;
-    }
-
-    @Override
-    public List<Book> getBooksByTitle(String bookTitle) throws BookException {
-        List<Book> booksListByBookTitle = bookRepository.findBooksByBookTitle(bookTitle);
-        if (booksListByBookTitle.isEmpty()) {
-            throw new BookException(BookException.ExceptionType.BOOK_NOT_FOUND, "Book not found");
-        }
-        return booksListByBookTitle;
+        return bookSet;
     }
 }

@@ -12,25 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("/book")
 public class BookController {
 
     @Autowired
     IBookService bookService;
 
-    @GetMapping("/getallbooks")
+    @GetMapping("/getbooks")
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/getbookbyauthor/{authorName}")
-    public List<Book> getBooksByAuthor(@PathVariable String authorName) throws BookException {
-        return bookService.getBooksByAuthor(authorName);
+    @GetMapping("/getbooks/{filter}")
+    public List<Book> getBooksByFilter(@PathVariable String filter) throws BookException {
+        return bookService.getBookByFilter(filter);
     }
-
-    @GetMapping("/getbookbytitle/{bookTitle}")
-    public List<Book> getBooksByTitle(@PathVariable String bookTitle) throws BookException {
-        return bookService.getBooksByTitle(bookTitle);
-    }
-
 }
