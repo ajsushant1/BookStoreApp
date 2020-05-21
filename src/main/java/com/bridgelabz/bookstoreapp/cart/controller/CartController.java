@@ -31,8 +31,8 @@ public class CartController {
     }
 
     @PutMapping("/updatebookquantity/{quantity}")
-    public Cart updateCart(@PathVariable long quantity, @RequestParam(value = "item_id") long itemId) throws CartException {
-        return cartService.updateCart(itemId, quantity);
+    public Cart updateCart(@PathVariable long quantity, @RequestParam(value = "book_id") long bookId) throws CartException {
+        return cartService.updateCart(bookId, quantity);
     }
 
     @DeleteMapping("/deletebook/{bookId}")
