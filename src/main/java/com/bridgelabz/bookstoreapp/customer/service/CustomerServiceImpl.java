@@ -26,4 +26,17 @@ public class CustomerServiceImpl implements ICustomerService {
         Customer customer = modelMapper.map(customerDTO, Customer.class);
         return customerRepository.save(customer);
     }
+
+    @Override
+    public Customer updateCustomer(long id, CustomerDTO customerDTO) {
+        Customer customer = customerRepository.findById(id).get();
+        customer.setAddress(customerDTO.getAddress());
+        customer.setAddressType(customerDTO.getAddressType());
+        customer.setCity(customerDTO.getCity());
+        customer.setLandmark(customerDTO.getLandmark());
+        customer.setLocality(customerDTO.getLocality());
+        customer.setName(customerDTO.getName());
+        customer.setPinCode(customerDTO.getPinCode());
+        return customerRepository.save(customer);
+    }
 }
