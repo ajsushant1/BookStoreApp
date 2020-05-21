@@ -1,4 +1,4 @@
-package com.bridgelabz.bookstoreapp.dto;
+package com.bridgelabz.bookstoreapp.book.dto;
 
 public class Book {
     int bookId;

@@ -8,15 +8,15 @@ import javax.persistence.Table;
 @Table(name = "cart")
 public class Cart {
     @Id
-    private long book_id;
+    private long bookId;
     private long quantity;
 
-    public long getBook_id() {
-        return book_id;
+    public long getBookId() {
+        return bookId;
     }
 
-    public void setBook_id(long book_id) {
-        this.book_id = book_id;
+    public void setBookId(long bookId) {
+        this.bookId = bookId;
     }
 
     public long getQuantity() {

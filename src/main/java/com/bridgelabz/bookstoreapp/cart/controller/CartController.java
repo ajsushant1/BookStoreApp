@@ -12,8 +12,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/cart")
 public class CartController {
-    @Autowired
+    final
     CartServiceImpl cartService;
+
+    @Autowired
+    public CartController(CartServiceImpl cartService) {
+        this.cartService = cartService;
+    }
 
     @PostMapping("/addbook")
     public Cart addBooksToCart(@RequestBody CartDTO cartDTO) {
