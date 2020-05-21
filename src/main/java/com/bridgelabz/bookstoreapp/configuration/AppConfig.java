@@ -1,4 +1,4 @@
-package com.bridgelabz.bookstoreapp.cart.configuration;
+package com.bridgelabz.bookstoreapp.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
