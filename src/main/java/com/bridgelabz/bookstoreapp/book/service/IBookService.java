@@ -8,5 +8,5 @@ import java.util.List;
 public interface IBookService {
     List<Book> getAllBooks();
 
-    List<Book> getBookByFilter(String filter) throws BookException;
+    List<Book> getBooksByFilter(String filter) throws BookException;
 }

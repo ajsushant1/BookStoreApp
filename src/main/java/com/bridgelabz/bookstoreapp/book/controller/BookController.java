@@ -30,6 +30,6 @@ public class BookController {
 
     @GetMapping("/get-books/{filter}")
     public List<Book> getBooksByFilter(@PathVariable String filter) throws BookException {
-        return bookService.getBookByFilter(filter);
+        return bookService.getBooksByFilter(filter);
     }
 }
