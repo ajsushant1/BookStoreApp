@@ -29,14 +29,11 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public Customer updateCustomer(long id, CustomerDTO customerDTO) {
-        Customer customer = customerRepository.findById(id).get();
-        customer.setAddress(customerDTO.getAddress());
-        customer.setAddressType(customerDTO.getAddressType());
-        customer.setCity(customerDTO.getCity());
-        customer.setLandmark(customerDTO.getLandmark());
-        customer.setLocality(customerDTO.getLocality());
-        customer.setName(customerDTO.getName());
-        customer.setPinCode(customerDTO.getPinCode());
+        //Create new customer object
+        Customer customer = modelMapper.map(customerDTO, Customer.class);
+        //Map it with the target object
+        customer.setId(id);
+        //Update record
         return customerRepository.save(customer);
     }
 

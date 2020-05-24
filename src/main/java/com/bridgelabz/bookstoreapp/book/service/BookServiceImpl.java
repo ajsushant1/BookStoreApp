@@ -15,13 +15,9 @@ public class BookServiceImpl implements IBookService {
     final
     BookRepository bookRepository;
 
-    final
-    ModelMapper modelMapper;
-
     @Autowired
     public BookServiceImpl(BookRepository bookRepository, ModelMapper modelMapper) {
         this.bookRepository = bookRepository;
-        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -31,6 +27,7 @@ public class BookServiceImpl implements IBookService {
 
     @Override
     public List<Book> getBooksByFilter(String filter) throws BookException {
+        //Using custom method to filter by search string
         List<Book> bookList = bookRepository.findBooksByBookAuthorContainsOrBookTitleContains(filter, filter);
         if (bookList.isEmpty()) {
             throw new BookException(BookException.ExceptionType.BOOK_NOT_FOUND, "Book not found");

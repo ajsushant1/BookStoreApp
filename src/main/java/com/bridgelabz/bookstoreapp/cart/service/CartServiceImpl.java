@@ -36,6 +36,7 @@ public class CartServiceImpl implements ICartService {
         return cartRepository.findAll();
     }
 
+    //Method to update book quantity in cart
     @Override
     public Cart updateCart(long bookId, long quantity) throws CartException {
         Cart cart = cartRepository.findById(bookId).get();
