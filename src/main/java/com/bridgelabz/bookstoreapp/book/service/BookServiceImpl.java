@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -33,5 +34,10 @@ public class BookServiceImpl implements IBookService {
             throw new BookException(BookException.ExceptionType.BOOK_NOT_FOUND, "Book not found");
         }
         return bookList;
+    }
+
+    @Override
+    public List<Book> getBooksByIdIn(Long[] ids) {
+        return bookRepository.findAllById(Arrays.asList(ids));
     }
 }

@@ -26,6 +26,11 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
+    @GetMapping("/get-books-by-id")
+    public List<Book> getBooksByIdIn(@RequestParam(value = "ids") Long[] ids) {
+        return bookService.getBooksByIdIn(ids);
+    }
+
     @GetMapping("/get-books/{filter}")
     public List<Book> getBooksByFilter(@PathVariable String filter) throws BookException {
         return bookService.getBooksByFilter(filter);

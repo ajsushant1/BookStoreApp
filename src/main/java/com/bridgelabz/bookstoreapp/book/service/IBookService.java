@@ -9,4 +9,6 @@ public interface IBookService {
     List<Book> getAllBooks();
 
     List<Book> getBooksByFilter(String filter) throws BookException;
+
+    List<Book> getBooksByIdIn(Long[] ids);
 }
