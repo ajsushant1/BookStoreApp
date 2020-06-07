@@ -49,4 +49,8 @@ public class CartServiceImpl implements ICartService {
     public void deleteBook(long book_id) {
         cartRepository.deleteById(book_id);
     }
+
+    public void deleteAllBooks() {
+        cartRepository.deleteAll();
+    }
 }

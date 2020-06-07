@@ -40,4 +40,9 @@ public class CartController {
     public void deleteMapping(@PathVariable long bookId) {
         cartService.deleteBook(bookId);
     }
+
+    @DeleteMapping("/empty-cart")
+    public void deleteMapping() {
+        cartService.deleteAllBooks();
+    }
 }
