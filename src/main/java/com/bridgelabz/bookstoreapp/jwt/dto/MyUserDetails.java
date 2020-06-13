@@ -1,6 +1,6 @@
 package com.bridgelabz.bookstoreapp.jwt.dto;
 
-import com.bridgelabz.bookstoreapp.jwt.model.User;
+import com.bridgelabz.bookstoreapp.user_details.model.UserRegistrationDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
-    private String userName ;
+    private String userName;
     private String userPassword;
     private boolean active;
     private List<GrantedAuthority> authorities;
 
-    public MyUserDetails(User user) {
-        this.userName = user.userName;
-        this.userPassword = user.userPassword;
+    public MyUserDetails(UserRegistrationDetails user) {
+        this.userName = user.getEmail();
+        this.userPassword = user.getPassword();
         this.active = user.isActive();
         this.authorities = Arrays.stream(user.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new).collect(Collectors.toList());

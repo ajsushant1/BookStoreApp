@@ -1,23 +1,23 @@
 package com.bridgelabz.bookstoreapp.jwt.model;
 
 public class AuthenticationRequest {
-    public String username;
+    public String email;
     public String password;
 
     public AuthenticationRequest() {
     }
 
     public AuthenticationRequest(String username, String password) {
-        this.username = username;
+        this.email = username;
         this.password = password;
     }
 
     public String getUsername() {
-        return username;
+        return email;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.email = username;
     }
 
     public String getPassword() {

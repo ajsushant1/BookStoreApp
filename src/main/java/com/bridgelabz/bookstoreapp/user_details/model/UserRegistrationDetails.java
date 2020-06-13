@@ -7,8 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "user")
 public class UserRegistrationDetails {
+    public boolean active;
     @Id
     @GeneratedValue
     private long userId;
@@ -16,6 +17,23 @@ public class UserRegistrationDetails {
     private String lastName;
     private String email;
     private String password;
+    private String roles;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 
     public long getUserId() {
         return userId;
