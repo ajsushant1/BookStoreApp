@@ -1,5 +1,6 @@
 package com.bridgelabz.bookstoreapp.mailsender.service;
 
+import com.bridgelabz.bookstoreapp.mailsender.model.NewUserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -16,12 +17,12 @@ public class MailServiceImpl implements IMailService {
     private JavaMailSender javaMailSender;
 
     @Override
-    public void sendMail(String receiver,String userName) throws MessagingException {
+    public void sendMail(NewUserData newUserData) throws MessagingException {
         MimeMessage message=javaMailSender.createMimeMessage();
         MimeMessageHelper helper=new MimeMessageHelper(message,true);
         helper.setSubject("Thank you for registering");
-        helper.setTo(receiver);
-        helper.setText("Dear "+userName+",\n" +
+        helper.setTo(newUserData.getEmail());
+        helper.setText("Dear "+newUserData.getName()+",\n" +
                 "\n" +
                 "Thank you for your registration. If you have any questions, please let me know!.\n" +
                 "\n" +

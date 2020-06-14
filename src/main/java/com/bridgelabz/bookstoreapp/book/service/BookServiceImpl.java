@@ -37,6 +37,22 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
+    public List<Book> getBooksBySort(String sort) {
+        List<Book> bookList = null;
+        switch (sort) {
+            case "increasing":
+                bookList = bookRepository.findByOrderByBookPrice();
+                break;
+            case "decreasing":
+                bookList = bookRepository.findByOrderByBookPriceDesc();
+                break;
+            default:
+                bookList = bookRepository.findByOrderByBookQuantity();
+        }
+        return bookList;
+    }
+
+    @Override
     public List<Book> getBooksByIdIn(Long[] ids) {
         return bookRepository.findAllById(Arrays.asList(ids));
     }

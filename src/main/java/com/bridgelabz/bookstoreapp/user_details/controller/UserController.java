@@ -17,6 +17,7 @@ public class UserController {
     @Autowired
     IUserService userService;
 
+    @PostMapping
     public ResponseEntity<String> registerUser(@RequestBody UserDTO userDTO) {
         try {
             UserRegistrationDetails userRegistrationDetails = userService.registerUser(userDTO);

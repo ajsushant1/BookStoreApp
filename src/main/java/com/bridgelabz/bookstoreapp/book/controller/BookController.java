@@ -21,7 +21,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @RequestMapping("/get-books")
+    @GetMapping("/get-books")
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
@@ -29,6 +29,11 @@ public class BookController {
     @GetMapping("/get-books-by-id")
     public List<Book> getBooksByIdIn(@RequestParam(value = "ids") Long[] ids) {
         return bookService.getBooksByIdIn(ids);
+    }
+
+    @GetMapping("/sorted/{sort}")
+    public List<Book> getBooksBySort(@PathVariable(value = "sort") String sort) {
+        return bookService.getBooksBySort(sort);
     }
 
     @GetMapping("/get-books/{filter}")

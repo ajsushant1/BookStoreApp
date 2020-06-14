@@ -20,7 +20,7 @@ public class UserRegistrationDetails {
     private String roles;
 
     public boolean isActive() {
-        return active;
+        return true;
     }
 
     public void setActive(boolean active) {
@@ -28,7 +28,7 @@ public class UserRegistrationDetails {
     }
 
     public String getRoles() {
-        return roles;
+        return "user";
     }
 
     public void setRoles(String roles) {
